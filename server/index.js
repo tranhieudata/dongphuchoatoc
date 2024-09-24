@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser'
 
 
 connect();
-const port = 3000
+const port = 3030
 const app = expess();
 app.use(bodyParser.json());
 app.use(cors({

@@ -1,0 +1,74 @@
+.Container {
+    display: grid;
+    grid-template-columns: 2% auto
+  }
+  
+/* .App-Slidebar {
+    width: 15%;
+    float: left;
+    background-color: #f36202;
+
+  } */
+
+#Content{
+    background-color: #FFEBEC;
+    border-radius: 15px;
+}
+  
+.Menu h2 {
+    padding-top: 20px;
+    background-color: #FFEBEC;
+    color: #ED3237;
+    margin: 20px;
+    border-radius: 5px;
+}
+.App-Content-analytics {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #FFEBEC;
+    padding: 10px;
+    border-radius: 20px;
+}
+.App-Content-analytics-item {
+    background-color: white;
+    /* padding: 20px; */
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+.App-Content-designer-box {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.App-Content-designer {  
+/* padding: 20px; */
+    margin: 20px;
+    /* font-size: 30px; */
+    /* text-align: center; */
+    min-height: 500px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* border-radius: 5px; */
+    }
+.App-Content-designer-news {
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+.App-Content-designer-news-item {
+
+    color: #f36202;
+    font-weight: bold;
+    /* font-size: 30px; */
+    /* text-align: center; */
+    height: 30px;
+    text-align: center;
+    margin: 0px 5px 0px 5px;
+    border-radius: 5px;
+    padding-top: 5px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* border-radius: 5px; */
+
+}
