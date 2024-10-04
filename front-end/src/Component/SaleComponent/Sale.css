@@ -58,11 +58,11 @@
     font-size: 40px;
     color: #b1b1b1;
 }
-.App-Content-designer-box {
+.App-Content-sale-box {
     display: grid;
     grid-template-columns: 50% 50%;
 }
-.App-Content-designer {  
+.App-Content-sale {  
 /* padding: 20px; */
     /* margin: 20px; */
     /* font-size: 30px; */
@@ -71,13 +71,13 @@
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     /* border-radius: 5px; */
     }
-.App-Content-designer-news {
+.App-Content-sale-news {
     display: grid;
     grid-template-columns: auto auto;
     margin: 10px;
 
 }
-.App-Content-designer-news-item1  {
+.App-Content-sale-news-item1  {
 
     color: #ffffff;
     font-weight: bold;
@@ -88,7 +88,7 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-.App-Content-designer-news-item2  {
+.App-Content-sale-news-item2  {
 
     color: #498de1;
     font-weight: bold;
@@ -103,7 +103,7 @@
 
 /* phần đơn hàng */
 
-.App-Content-designer-oders {
+.App-Content-sale-oders {
     /* display: grid;
     grid-template-columns: 2.5% auto 20% 2.5%; */
     background-color: #ffffff;

@@ -1,9 +1,10 @@
-import "./Designer.css"
+import "./Sale.css"
 import logo from "../../static/img/logo.png"
+import Revenue from "./revenue"
 
 
 
-function Designer(){
+function Sale(){
 
     const styleDesigner = "#00AFEF"
     const styleSale = "#FFFF"
@@ -18,15 +19,15 @@ function Designer(){
                 <div className='App-Content-analytics'>
                     <div className='App-Content-analytics-item'>
                         <div className="number-new-design">4</div>
-                        <div>Thiết kế mới</div>
+                        <div>Chờ gửi tk</div>
                     </div>
                     <div className='App-Content-analytics-item'>
                         <div className="number-new-file">15</div>
-                        <div>Xếp file</div>
+                        <div>Chờ Chốt</div>
                     </div>
                     <div className='App-Content-analytics-item'>
                         <div className="number-new-done">100</div>
-                        <div>Đã chốt</div></div>
+                        <div>Doanh Thu</div></div>
                     <div className='App-Content-analytics-item'>
                         <div className="number-new-delete">2</div>
                         <div>Hủy</div></div> 
@@ -77,7 +78,10 @@ function Designer(){
                             <div className="App-Content-designer-news-item1" style={{background:styleDesigner}}>Chờ xếp</div>
                             <div className="App-Content-designer-news-item2" style={{background:styleSale}}>Đã xếp</div> 
                         </div>
-                        <div className='App-Content-designer-oders'>
+                        <div className='App-Content-sale-analysis'>
+                            <Revenue/>
+
+
                               {/* Phần này chứa đơn hàng chờ xếp file*/}
                         </div>
                     </div>
@@ -86,4 +90,4 @@ function Designer(){
         </div>
     )
 }
-export default Designer
+export default Sale
