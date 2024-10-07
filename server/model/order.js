@@ -27,26 +27,6 @@ const order = new Schema({
     total:{
         type:Number
         
-    },
-    is_designer: {
-        type:Boolean,
-        default:true
-    },
-    is_operator: {
-        type:Boolean,
-        default:false
-    },
-    is_sale: {
-        type:Boolean,
-        default:false
-    },
-    is_product_finishing: {
-        type:Boolean,
-        default:false
-    },
-    type: {
-        type: String, 
-        enum: ["dongphuc_nhahang", "dongphuc_congty", "dongphuc_aolop","dongphuc_teambuilding"],
-    },
+    }
 },{ timestamps: { createdAt: 'created_at' } })
 export {order}
