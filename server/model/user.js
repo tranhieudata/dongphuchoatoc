@@ -11,13 +11,9 @@ const user = new Schema({
         type:String,
         require:true,
     },
-    is_admin: {
-        type: Boolean,
-        default: false,
-    },
-    role: {
-        type: String,
-        enum: ["designer", "sale", "admin","operator","product_finishing"],
-    },
+    roleId: {
+        type:String,
+        require:true, 
+    }
 },{ timestamps: true })
 export {user}

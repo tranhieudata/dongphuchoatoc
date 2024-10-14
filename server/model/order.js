@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const order = new Schema({
-    order_id: {
+    order_code: {
         type: String,
         required: true,
       },

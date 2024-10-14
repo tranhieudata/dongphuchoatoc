@@ -1,15 +1,20 @@
 import mongoose from "mongoose";
 import { user } from "../../model/user.js";
 // const MyModel = mongoose.model("tên dữ liệu data",user)
-
+import { role } from "../../model/role.js";
+import {roledetailaction} from "../../model/roledetailaction.js"
+import { roledetail } from "../../model/roledetail.js";
+import { roledetailview } from "../../model/roledetailview.js";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 const UserModel = mongoose.model("user",user)
-
+const RoleDetailModel = mongoose.model("roledetail",roledetail)
+const RoleDetailActionModel = mongoose.model("roledetailaction",roledetailaction)
+const RoleDetailViewModel = mongoose.model("roledetailview",roledetailview)
 class UserController {
     async create(req,res) {
         try {
-            const accesstoken =  req.header.token
+            // const accesstoken =  req.header.token
             const salt = await bcrypt.genSaltSync(10);
             const hash = await bcrypt.hashSync(req.body.passwords, salt);
             const userData = new UserModel(req.body)
@@ -93,10 +98,19 @@ class UserController {
                 try {
                     const checkUser = await bcrypt.compare(req.body.passwords, user.passwords)
                     if(checkUser){
-                        const accesstoken = jwt.sign({id:user._id,admin:user.is_admin,user_name:user.user_name,role: user.role },process.env.SECRET_KEY)
+                        const accesstoken = jwt.sign({id:user._id,user_name:user.user_name,roleId: user.roleId },process.env.SECRET_KEY)
                         res.cookie("accesstoken",accesstoken, {
                             httpOny:true
                         })
+                        
+                        const roledetail_Id = await RoleDetailModel.findOne({roleId:user.roleId,typeRolldetail:"view"})
+                        const rolview = await RoleDetailViewModel.find({roledetailId:roledetail_Id._id})
+                        if(rolview) {
+                            res.cookie("role",rolview[0].accessType, {
+                                httpOny:true
+                            })
+                            
+                        }
                         res.status(200).json({noti:"dang nhap thanh cong",accesstoken})
                     }else {
                         res.status(403).json({noti:"dang nhap khong thanh cong"})

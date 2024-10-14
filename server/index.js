@@ -12,7 +12,7 @@ const port = 3030
 const app = expess();
 app.use(bodyParser.json());
 app.use(cors({
-  origin:"http://localhost:3001",
+  origin:"http://localhost:3000",
   credentials :true
 
 }));

@@ -4,76 +4,82 @@ import { order } from "../../model/order.js";
 
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { role } from "../../model/role.js";
+import {roledetailaction} from "../../model/roledetailaction.js"
+import { roledetail } from "../../model/roledetail.js";
+import { roledetailview } from "../../model/roledetailview.js";
 
 const OrderModel = mongoose.model("order",order)
+const RoleModel = mongoose.model("role",role)
+const RoleDetailModel = mongoose.model("roledetail",roledetail)
+const RoleDetailActionModel = mongoose.model("roledetailaction",roledetailaction)
+const RoleDetailViewModel = mongoose.model("roledetailview",roledetailview)
 
 class OrderController {
+
+ 
+
+    //tạo oder
     async create(req,res) {
-        try {
-            const orderData = new OrderModel(req.body)
-            
-            if(!orderData) {
-                res.status(404)
-            }
-            else {
-                const data = orderData.save()
-                res.status(200).json(data)
+
+            try {
+                const orderData = new OrderModel(req.body)
                 
+                if(!orderData) {
+                    res.status(404)
+                }
+                else {
+                    const data = orderData.save()
+                    res.status(200).json(data)
+                    
+                }n
+            } catch (error) {
+                res.status(500)
             }
-        } catch (error) {
-            res.status(500)
-        }
     }
     async getall(req,res){
         try {
-            const myrole = req.user.role
-            console.log(myrole)
-            if(myrole == "admin"){
-                const orderData = await OrderModel.find({});
-                return res.json(orderData)
-            }
-            if(myrole == "designer"){
-                const orderData = await OrderModel.findOne({is_designer:true});
-                return res.json(orderData)
-            }
-            if(myrole == "sale"){
-                const orderData = await OrderModel.findOne({is_sale:true});
-                console.log(orderData)
-                return res.json(orderData)
-            }
-            if(myrole == "operator"){
-                const orderData = await OrderModel.findOne({is_operator:true});
-                return res.json(orderData)
-            }
-            if(myrole == "product_finishing"){
-                const orderData = await OrderModel.findOne({is_product_finishing:true});
-                return res.json(orderData)
-            }
-            res.status(404).json("Not Found data")
+            const orderData = await OrderModel.find({});
+            return res.json(orderData)
+
         } catch (error){
             res.status(500)
         }
+        
     }
     async update(req,res){
-        const id = req.params.id
-        const order = await OrderModel.findById(id)
+            const id = req.params.id
+            const order = await OrderModel.findById(id)
 
-        if(!order) {
-            return res.status(404).json("Not Found")
-        }
-        const updateOrder = await OrderModel.findByIdAndUpdate(id,req.body)
-        res.status(202).json(updateOrder)
-
+            if(!order) {
+                return res.status(404).json("Not Found")
+            }
+            const updateOrder = await OrderModel.findByIdAndUpdate(id,req.body)
+            res.status(202).json(updateOrder)
+      
     }
     async delete(req,res){
-        const id = req.params.id
-        const order = await OrderModel.findById(id)
-        if(order) {
-            await OrderModel.findByIdAndDelete(id)
-        }else{
-            return res.status(404)
-        }
+
+            const id = req.params.id
+            const order = await OrderModel.findById(id)
+            if(order) {
+                await OrderModel.findByIdAndDelete(id)
+            }else{
+                return res.status(404)
+            }
+    }
+    async getone(req,res){
+
+
+            const id = req.params.id
+            const order = await OrderModel.findById(id)
+            if(order) {
+                return res.status(200).json(order)
+            }else{
+                return res.status(404)
+            }
 
     }
+   
 }
 export {OrderController}

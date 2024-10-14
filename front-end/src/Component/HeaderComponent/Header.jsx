@@ -1,7 +1,12 @@
 
 import "./Header.css"
 import logo from "../../static/img/logo.png"
+import Cookies from 'js-cookie';
+
+
+
 function Header(){
+
     return (
         <div>
           <div class="header" >
@@ -19,5 +24,6 @@ function Header(){
         </div>
         
     )
+    
 }
-export default Header
+export default Header()

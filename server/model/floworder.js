@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const floworder = new mongoose.Schema({
     //id của đơn hàng
-    order_id : {
+    orderId : {
         type: String,
         require:true
     },

@@ -3,7 +3,7 @@ import logo from "../../static/img/logo.png"
 
 
 
-function Designer(){
+function Designer({user}){
 
     const styleDesigner = "#00AFEF"
     const styleSale = "#FFFF"

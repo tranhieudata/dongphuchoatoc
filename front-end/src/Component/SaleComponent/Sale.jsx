@@ -1,10 +1,10 @@
 import "./Sale.css"
 import logo from "../../static/img/logo.png"
-import Revenue from "./revenue"
+// import Revenue from "./revenue"
 
 
 
-function Sale(){
+function Sale({user}){
 
     const styleDesigner = "#00AFEF"
     const styleSale = "#FFFF"
@@ -79,7 +79,7 @@ function Sale(){
                             <div className="App-Content-designer-news-item2" style={{background:styleSale}}>Đã xếp</div> 
                         </div>
                         <div className='App-Content-sale-analysis'>
-                            <Revenue/>
+                            {/* <Revenue/> */}
 
 
                               {/* Phần này chứa đơn hàng chờ xếp file*/}
